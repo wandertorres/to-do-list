@@ -6,7 +6,7 @@ import { ListItem } from './components/ListItem';
 const App = () => {
   const [list, setList] = useState<Item[]>([
     { id: 1, description: 'Comprar boldo', done: false },
-    { id: 2, description: 'Estudar typescript', done: false }
+    { id: 2, description: 'Estudar typescript', done: true }
   ]);
 
   return (
@@ -16,8 +16,8 @@ const App = () => {
           Lista de Tarefas
         </C.Heading>
         
-        {list.map(() => (
-          <ListItem /> 
+        {list.map((item, index) => (
+          <ListItem key={index} item={item} /> 
         ))}
       </C.Area>
     </C.Container>
