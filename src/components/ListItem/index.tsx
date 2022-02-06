@@ -3,10 +3,11 @@ import * as C from './style';
 import { Item } from '../../types/Item';
 
 type Props = {
-    item: Item
+    item: Item,
+    changeDone: (id: number) => void
 }
 
-export const ListItem = ({ item }: Props) => {
+export const ListItem = ({ item, changeDone }: Props) => {
     const [isChecked, setIsChecked] = useState(item.done);
 
     return (
@@ -15,9 +16,10 @@ export const ListItem = ({ item }: Props) => {
                 type="checkbox"
                 checked={isChecked}
                 onChange={e => setIsChecked(e.target.checked)} 
+                onClick={() => changeDone(item.id)}
             />
             <label>
-                {item.description}    
+                {item.description} - {item.done.toString()}    
             </label>
         </C.Container>
     );
