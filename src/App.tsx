@@ -22,7 +22,6 @@ const App = () => {
       });
 
     setList(newList);
-    console.log(newList)
   }
 
   const changeDone = (id: number) => {
