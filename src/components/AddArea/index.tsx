@@ -2,15 +2,15 @@ import { useState, KeyboardEvent } from 'react';
 import * as C from './style';
 
 type Props = {
-    handleAddTask: (taskName: string) => void
+    addTask: (taskName: string) => void
 }
 
-export const AddArea = ({ handleAddTask }: Props) => {
+export const AddArea = ({ addTask }: Props) => {
     const [inputText, setInputText] = useState('');
 
     const handleKeyUp = (e: KeyboardEvent) => {
         if(e.code === 'Enter' && inputText !== '') {
-            handleAddTask(inputText);
+            addTask(inputText);
             setInputText('');
         }
     }

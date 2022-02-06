@@ -4,10 +4,11 @@ import { Item } from '../../types/Item';
 
 type Props = {
     item: Item,
-    changeDone: (id: number) => void
+    changeDone: (id: number) => void,
+    delTask: (item: Item) => void
 }
 
-export const ListItem = ({ item, changeDone }: Props) => {
+export const ListItem = ({ item, changeDone, delTask }: Props) => {
     const [isChecked, setIsChecked] = useState(item.done);
 
     return (
@@ -21,7 +22,7 @@ export const ListItem = ({ item, changeDone }: Props) => {
             <label>
                 {item.description}     
             </label>
-            <span>✖️</span>
+            <a onClick={() => delTask(item)}>✖️</a>
         </C.Container>
     );
 }

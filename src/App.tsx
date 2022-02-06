@@ -6,7 +6,8 @@ import { AddArea } from './components/AddArea';
 
 const App = () => {
   const [list, setList] = useState<Item[]>([]);
-  const handleAddTask = (taskName: string) => {
+  
+  const addTask = (taskName: string) => {
     let newList = [...list];
     let id;
 
@@ -20,6 +21,13 @@ const App = () => {
         description: taskName,
         done: false
       });
+
+    setList(newList);
+  }
+
+  const delTask = (item: Item) => {
+    let newList = [...list];
+    newList.splice(newList.indexOf(item, 1));
 
     setList(newList);
   }
@@ -38,10 +46,10 @@ const App = () => {
           Lista de Tarefas
         </C.Heading>
 
-        <AddArea handleAddTask={handleAddTask} />
+        <AddArea addTask={addTask} />
         
         {list.map((item, index) => (
-          <ListItem key={index} item={item} changeDone={changeDone} /> 
+          <ListItem key={index} item={item} changeDone={changeDone} delTask={delTask} /> 
         ))}
       </C.Area>
     </C.Container>

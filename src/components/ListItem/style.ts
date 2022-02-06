@@ -13,14 +13,21 @@ export const Container = styled.div(({ done }: ContainerProps) => (`
     align-items: center;
 
     input {
-        width: 25px;
-        height: 25px;
-        margin-right: 5px;
+        width: 20px;
+        height: 20px;
+        width: 5vw;
     }
 
     label {
         color: #CCC;
         text-decoration: ${done ? 'line-through' : 'initial'};
+        width: 90vw;
+    }
+
+    a {
+        width: 5vw;
+        text-decoration: none;
+        cursor: pointer;
     }
 `
 ));
