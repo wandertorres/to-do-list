@@ -5,20 +5,24 @@ import { ListItem } from './components/ListItem';
 import { AddArea } from './components/AddArea';
 
 const App = () => {
-  const [list, setList] = useState<Item[]>([
-    { id: 1, description: 'Comprar boldo', done: false },
-    { id: 2, description: 'Estudar typescript', done: true }
-  ]);
-
+  const [list, setList] = useState<Item[]>([]);
   const handleAddTask = (taskName: string) => {
     let newList = [...list];
-    newList.push({
-      id: list.length + 1,
-      description: taskName,
-      done: false
-    });
+    let id;
+
+    if(newList.length === 0)
+      id = 1;
+    else
+      id = newList[newList.length-1].id + 1;
+
+      newList.push({
+        id: id,
+        description: taskName,
+        done: false
+      });
 
     setList(newList);
+    console.log(newList)
   }
 
   const changeDone = (id: number) => {

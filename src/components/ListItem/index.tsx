@@ -19,8 +19,9 @@ export const ListItem = ({ item, changeDone }: Props) => {
                 onClick={() => changeDone(item.id)}
             />
             <label>
-                {item.description} - {item.done.toString()}    
+                {item.description}     
             </label>
+            <span>✖️</span>
         </C.Container>
     );
 }
